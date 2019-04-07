@@ -384,20 +384,20 @@ Ship = function () {
   this.collidesWith = ["asteroid", "bigalien", "alienbullet"];
 
   this.preMove = function (delta) {
-    if (KEY_STATUS.left) {
+    if (KEY_STATUS.right) {
       this.vel.rot = -6;
-    } else if (KEY_STATUS.right) {
+    } else if (KEY_STATUS.left) {
       this.vel.rot = 6;
     } else {
       this.vel.rot = 0;
     }
 
-    if (KEY_STATUS.up) {
+    if (KEY_STATUS.down) {
       var rad = ((this.rot-90) * Math.PI)/180;
       this.acc.x = 0.5 * Math.cos(rad);
       this.acc.y = 0.5 * Math.sin(rad);
       this.children.exhaust.visible = Math.random() > 0.1;
-    } else if (KEY_STATUS.down) {
+    } else if (KEY_STATUS.up) {
       var rad = ((this.rot-90) * Math.PI)/180;
       this.acc.x = 0.1 * Math.cos(rad);
       this.acc.y = 0.1 * Math.sin(rad);
